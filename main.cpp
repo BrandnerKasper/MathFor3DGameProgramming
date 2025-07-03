@@ -27,8 +27,24 @@ namespace Chapter2 {
         std::println("Hello from Matrix 3x3 World!");
         Matrix3x3 m1 {{1, 2, 3, 4, 5, 6, 7, 8, 9}};
         Matrix3x3 m2 {{1, 2, 3, 4, 5, 6, 7, 8, 9}};
+        auto s {3};
+        Vector3D v {1, 2, 3};
 
         std::println("{} + {} = {}.", m1, m2, m1+m2);
+        std::println("{} - {} = {}.", m1, m2, m1-m2);
+        std::println("{} * {} = {}.", m1, s, m1*s);
+        std::println("{} * {} = {}.", s, m2, s*m2);
+        std::println("{} * {} = {}.", m1, m2, m1*m2);
+        std::println("{} / {} = {}.", m1, s, m1/s);
+        std::println("{} / {} = {}.", s, m2, s/m2);
+        std::println("{} * {} = {}.", v, m1, v*m1);
+        std::println("{} * {} = {}.", m2, v, m2*v);
+
+        m1.identity();
+        std::println("Reset matrix m1 to identity matrix {}.", m1);
+        std::println("Determinant of m1 {} and m2 {}.", m1.det(), m2.det());
+        Matrix3x3 m3 {{1, 0, 0, 0, 2, 2, 3, 0, 8}};
+        std::println("M3 {} and it's inverse m3' {}.", m3, m3.inverse());
     }
 }
 

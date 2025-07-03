@@ -3,6 +3,8 @@
 #include <map>
 #include <format>
 
+#include "Vector3D.h"
+
 
 class Matrix3x3 {
 public:
@@ -18,6 +20,18 @@ public:
     double operator()(int row, int col) const;
 
     friend Matrix3x3 operator+(const Matrix3x3& m1, const Matrix3x3& m2);
+    friend Matrix3x3 operator-(const Matrix3x3& m1, const Matrix3x3& m2);
+    friend Matrix3x3 operator*(const Matrix3x3& m, double s);
+    friend Matrix3x3 operator*(double s, const Matrix3x3& m);
+    friend Matrix3x3 operator*(const Matrix3x3& m1, const Matrix3x3& m2);
+    friend Matrix3x3 operator/(const Matrix3x3& m, double s);
+    friend Matrix3x3 operator/(double s, const Matrix3x3& m);
+    friend Vector3D operator*(const Matrix3x3& m, const Vector3D& v);
+    friend Vector3D operator*(const Vector3D& v, const Matrix3x3& m);
+
+    void identity();
+    double det();
+    Matrix3x3 inverse();
 
 private:
     double m_data[3][3]{};
